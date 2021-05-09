@@ -1,0 +1,5 @@
+Recap
+1. Analyze performance of algorithm, we use Big O 
+2. Big O give high level understanding of time & space complexity 
+3. Big O give general trends as liner, quadratic or constant, It cant give precision value
+4. Time & space complexity measured based on algorithm not by hardware 
