@@ -1,3 +1,5 @@
 Section 1 -> Introduction
 Section 2 -> Object & Array
-Section 3 -> Algorithm & 
+Section 3 -> Algorithm & Patterns (Divide&conquer, frequnecy pattern, multiple pointer, sliding window)
+Section 4 -> Recursion 
+Section 5 -> Searching Algorithm
