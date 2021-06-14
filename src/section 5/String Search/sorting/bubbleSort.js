@@ -4,8 +4,6 @@ let arr = [5, 3, 2, 4, 1];
 
 const bubbleSort = (arr) => {
 
-    const swap = (arr, index1, index2) => { [arr[index1], arr[index2]] = [arr[index2], arr[index1]] }
-
     // Base Case
     if (arr === null || arr.length === 0)
         return [];
@@ -26,5 +24,6 @@ const bubbleSort = (arr) => {
 }
 
 // swap Function 
+const swap = (arr, index1, index2) => { [arr[index1], arr[index2]] = [arr[index2], arr[index1]] }
 
 console.log(bubbleSort(arr))
