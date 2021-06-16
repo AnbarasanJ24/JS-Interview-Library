@@ -3,7 +3,6 @@
 
 let arr = ["Suganya", "Anbu", "Ram", "Raja"]
 let arr1 = [34, 1, 4, 55, 4]
-console.log(arr1.sort())
 
 // Compartor function 
 // JS accepts compartor function which takes a and b as parameter 
