@@ -1,4 +1,6 @@
 //  It is smiliar to Bubble sort, where we will find the smallest value and keep it at front
+//  It has minimum swap compared to bubble sort 
+
 
 let arr = [1, 5, 2, 4, 3]
 
@@ -9,7 +11,7 @@ const selectionSort = (arr) => {
         return []
 
     // swap function
-    const swap = (arr, index1, index2) => { return [arr[index1], arr[index2]] = [arr[index2], arr[index1]] }
+    const swap = (arr, index1, index2) => { [arr[index1], arr[index2]] = [arr[index2], arr[index1]] }
 
     // Run a loop of i -> 0 to arr length
     // min will be current value 
@@ -24,7 +26,7 @@ const selectionSort = (arr) => {
                 min = j;
             }
         }
-        swap(arr, i, min);
+        i != min ? swap(arr, i, min) : null;
     }
 
     // return arr
