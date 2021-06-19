@@ -2,6 +2,11 @@
 // First create a function that take two sorted array and merge it together
 // Call Merge sort for left and right and then merge the result of both using merge array function 
 
+// Time Complexity 
+// Best, Average, worst -> O (N log N), where log N is for spiliting the array from start to one. For 8 elements in an array we need 3 splits to make it as 1, 
+// so 2 power what gives 8-> 2^3 = 8 thats why we use log N and N for merge the array which have while loop
+// Space complexity is O (N) for pushing the result in seperate array (Merge function)
+
 let arr1 = [1, 10, 50]
 let arr2 = [2, 14, 99, 100]
 
