@@ -9,4 +9,4 @@
 
 # All abover sorts are comparison sorts, we nned to compare element with element then will decide the sorting place
 
-# we can do better using radix sort which is used to sort integer only not strings
+# we can do better using radix sort which is used to sort integer only not strings, Radix sort is faster than comparison sort but based on some proof they stated both radix and compariosn are equal
