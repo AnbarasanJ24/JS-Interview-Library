@@ -6,3 +6,7 @@
     # All three sorts average and worst time complexity is O (N^2)
     # O (N) for bubble and insertion sort, where O (N^2) for selection sort
     # Space complexity is O (N)
+
+# All abover sorts are comparison sorts, we nned to compare element with element then will decide the sorting place
+
+# we can do better using radix sort which is used to sort integer only not strings

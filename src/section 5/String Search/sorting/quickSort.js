@@ -7,6 +7,15 @@
 // Get a pivot index and call quick sort for left and right side 
 // Since arr length is not changing like merge sort, base case will be based on chnaging parameter of left and right index
 
+
+// Time comeplexity ( Splitting the array - Decomposition)
+// we are doing O (N) comparison for per decomposition (log N)
+// Best, Average -> O (N log N) and space comnplexity O (N log N), worst case is O (N^2)
+// In worst case, for example array is already sorted with pivot index as start 
+// then decomposition will be O (N) then O (N) comparison for O (N) Decompostion, to solve this we can pick pivot as rando or middle 
+
+
+
 const pivotFinder = (arr, start, end) => {
 
     // swap function
