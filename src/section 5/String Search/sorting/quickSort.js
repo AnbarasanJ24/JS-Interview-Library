@@ -1,9 +1,11 @@
 //  For quick sort, take one pivot element and keep the small values in the left of it and greater value in the right
 //  Now pivot element will be in correct place, then repeat the same for left and right half 
 
-
 // Like Merge sort, we have seperate function to find the pivot and arrange the elements based on pivot 
-// This funtion will return index and the left & right side order doesn't matter 
+// This funtion will return pivot index and the left & right side order doesn't matter 
+
+// Get a pivot index and call quick sort for left and right side 
+// Since arr length is not changing like merge sort, base case will be based on chnaging parameter of left and right index
 
 const pivotFinder = (arr, start, end) => {
 
@@ -22,7 +24,7 @@ const pivotFinder = (arr, start, end) => {
     // if current element is less than pivot 
     // increase pivot index 
     // swap the current and pivot index 
-    for (let i = start + 1; i < arr.length; i++) {
+    for (let i = start + 1; i <= end; i++) {
         if (arr[i] < pivot) {
             pivotIndex++;
             swap(arr, pivotIndex, i);
@@ -36,5 +38,16 @@ const pivotFinder = (arr, start, end) => {
     return pivotIndex;
 }
 
+const quickSort = (arr, left = 0, right = arr.length - 1) => {
+
+    if (left < right) {
+        let pivot = pivotFinder(arr, left, right);
+        quickSort(arr, left, pivot - 1);
+        quickSort(arr, pivot + 1, right);
+    }
+    return arr;
+
+}
+
 let arr = [4, 8, 2, 1, 5, 7, 6, 3];
-console.log(pivotFinder(arr));
+console.log(quickSort(arr));
