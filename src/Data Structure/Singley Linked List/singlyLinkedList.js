@@ -16,7 +16,7 @@ class SinglyLinkedList {
         this.tail = null;
     }
 
-    // Insert element at the end (Push) - Time Complexity O (1)
+    // Insert element at the end (Push)
     push(value) {
 
         // Create a Node with value
@@ -25,20 +25,14 @@ class SinglyLinkedList {
         // If Head is null then new node -> Head and Tail 
         // Else Tail will point to new node then update tail as new node 
 
-        if (this.head === null) {
+        if (head === null) {
             this.head = newNode;
-            this.tail = this.head;
+            this.tail = newNode;
         } else {
             this.tail.next = newNode;
-            this.tail = newNode;
+            tail = newNode;
         }
 
-        this.length++;
+
     }
 }
-
-let list = new SinglyLinkedList();
-list.push("Hello");
-list.push("There!");
-list.push(24);
-console.log("List", list)
