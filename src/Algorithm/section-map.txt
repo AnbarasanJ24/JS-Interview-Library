@@ -1,5 +1,12 @@
+Algorithm 
+
 Section 1 -> Introduction
 Section 2 -> Object & Array
 Section 3 -> Algorithm & Patterns (Divide&conquer, frequnecy pattern, multiple pointer, sliding window)
 Section 4 -> Recursion 
-Section 5 -> Searching Algorithm
+Section 5 -> Searching & Sorting Algorithm ( Binary, Bubble, selection, insertion, quick, merge, radix )
+
+Data Structure
+
+
+

@@ -26,7 +26,7 @@ Array.prototype.customReduce = function (callback, initialValue) {
     if (!callback || typeof callback !== 'function') {
         throw new TypeError(`${callback} is not a function`);
     }
-    // console.log("length", arguments, initialValue)
+    console.log("length", arguments, initialValue)
 
     if (!this.length) {
         if (arguments.length < 2) {
@@ -35,9 +35,6 @@ Array.prototype.customReduce = function (callback, initialValue) {
             return initialValue;
         }
     }
-
-    // Core functionality
-
 
 
 
