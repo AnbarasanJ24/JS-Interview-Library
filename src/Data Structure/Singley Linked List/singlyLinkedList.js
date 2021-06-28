@@ -34,9 +34,12 @@ class SinglyLinkedList {
         }
 
         this.length++;
+
+        // Return the new linked list 
+        return this;
     }
 
-    // 
+
 }
 
 let list = new SinglyLinkedList();
