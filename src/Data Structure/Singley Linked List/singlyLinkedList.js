@@ -122,7 +122,7 @@ class SinglyLinkedList {
         return newNode;
     }
 
-    // Get element at the passed index
+    // Get element at the passed index -Time complexity O (N)
     get(index) {
 
         // corner case 
@@ -145,7 +145,7 @@ class SinglyLinkedList {
         return current;
     }
 
-    // Set Element at the passed index 
+    // Set Element at the passed index -Time complexity O (N)
     set(index, value) {
 
         // Base case 
@@ -160,7 +160,7 @@ class SinglyLinkedList {
 
     }
 
-    // Insert new node at the specific position
+    // Insert new node at the specific position-Time complexity O (N)
     insert(index, value) {
 
         // Corner case, return null if index less than zero and 
@@ -187,6 +187,7 @@ class SinglyLinkedList {
 
     // Remove element from the list for give index
     // Skipping comments because this function same like insert process
+    // -Time complexity O (N)
     remove(index) {
 
         // Corner case
@@ -244,8 +245,8 @@ class SinglyLinkedList {
     }
 
     // Reverse In place - Efficient 
-    // Time complexity
-    // Space complexity 
+    // Time complexity - O (N)
+    // Space complexity - O (1)
 
     reverseInplace() {
         // 1->2->3->Null
@@ -277,14 +278,14 @@ let list = new SinglyLinkedList();
 list.push("Hello");
 list.push("There!");
 list.push("How are you");
-// let removed = list.pop();
-// console.log("removed", removed)
-// list.pop();
-// list.shift();
-// list.insert(0, "Good Morning")
-// list.set(7, "Anbu")
-// let getList = list.get(2);
-// list.remove(2);
+let removed = list.pop();
+list.pop();
+list.shift();
+list.insert(0, "Good Morning")
+list.set(7, "Anbu")
+let getList = list.get(2);
+list.remove(2);
+console.log("removed", removed)
 let reversedList = list.reverseInplace();
 console.log("List", reversedList.print());
 
