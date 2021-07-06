@@ -48,7 +48,7 @@ class SinglyLinkedList {
             return;
         }
 
-        // In case od single Node
+        // In case of single Node
         if (this.head === this.tail) {
             this.head = this.tail = null;
             this.length = 0;
