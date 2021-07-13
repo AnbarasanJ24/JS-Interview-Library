@@ -110,19 +110,82 @@ class DoublyLinkedList {
     get(index) {
 
         // base case
-        if (index < 0 || index === this.length) return undefined;
+        if (index < 0 || index >= this.length) return undefined;
 
-        // let middle = Math.floor(this.length/2);
-        // let result = index <= middle ? getIndexedNode(this.head)
+        // Get middle and based on that choose traverse from head or tail
+        let middle = Math.floor(this.length / 2);
+        let resultNode = index <= middle ? this.getNodeFromHead(index) : this.getNodeFromTail(index);
 
         // return node
+        return resultNode;
+    }
+
+    // helper Methods
+    getNodeFromHead(index) {
+        let current = this.head;
+        let count = 0;
+        while (count !== index) {
+            count++;
+            current = current.next;
+        }
+        return current;
+    }
+
+    // helper Methods
+    getNodeFromTail(index) {
+        let current = this.tail;
+        let count = this.length - 1;
+        while (count !== index) {
+            count--;
+            current = current.prev;
+        }
+        return current;
+    }
+
+    // set value for give index - Time complexity O (N)
+    set(index, value) {
+
+        // Base condition checked in get Method
+        let foundNode = this.get(index);
+
+        if (!foundNode) return false;
+
+        foundNode.value = value;
+        return true;
+    }
+
+    // Insert value at given index
+    insert(index, value) {
+
+        // Base case
+        if (index < 0 || index > this.length) return false;
+
+        if (index === 0) return !!this.unShift(value);
+        if (index === this.length) return !!this.push(value);
+
+        let newNode = new Node(value);
+        let left = this.get(index - 1);
+        let right = left.next;
+
+        left.next = newNode;
+        newNode.prev = left;
+        newNode.next = right;
+        right.prev = newNode;
+
+        // return true/false
+        this.length++;
+        return true;
     }
 }
 
 let dll = new DoublyLinkedList();
-dll.push(5);
-dll.push(4);
-dll.push("Last Item");
-dll.unShift("First")
-dll.unShift("Second")
-console.log("DLL", dll)
+// dll.push(1);
+// dll.push(2);
+// dll.push(3);
+// dll.push(4);
+// dll.push(5);
+// dll.push(6);
+dll.insert(11, 1)
+// dll.unShift("First")
+// dll.unShift("Second")
+console.log("DLL", dll.insert(-11, 1))
