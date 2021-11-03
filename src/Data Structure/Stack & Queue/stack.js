@@ -3,7 +3,7 @@
 // Call stack and browser history object in browser
 // Undo/Redo 
 
-// Time compleixty 
+// Time Complexity 
 // Insert, Remove - O (1)
 // Search, Access - O (N)
 
@@ -13,7 +13,7 @@
 
 
 // Linked List Implementation
-// In singley linked list, add last is O (1) and removing at last is O(1)
+// In singley linked list, add last is O (N) and removing at last is O(N)
 // In Doubly linked list, add and remove at last is O (1)
 // But in singley linked list we can add and remove at first is O (1)
 
