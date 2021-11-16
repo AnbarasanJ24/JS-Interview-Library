@@ -29,8 +29,8 @@ const depthFirstIterative = (graph, startingPoint) => {
         const current = stack.pop();
         console.log(current)
 
-        for (let neighbour of graph[current]) {
-            stack.push(neighbour);
+        for (let neighbor of graph[current]) {
+            stack.push(neighbor);
         }
     }
 
@@ -41,8 +41,8 @@ const depthFirstIterative = (graph, startingPoint) => {
 
 const depthFirstRecursive = (graph, startingPoint) => {
     console.log(startingPoint);
-    for (let neighbour of graph[startingPoint]) {
-        depthFirstRecursive(graph, neighbour);
+    for (let neighbor of graph[startingPoint]) {
+        depthFirstRecursive(graph, neighbor);
     }
 }
 
@@ -60,8 +60,8 @@ const breadthFirstIterative = (graph, startingPoint) => {
         const current = queue.shift();
         console.log(current);
 
-        for (let neighbour of graph[current]) {
-            queue.push(neighbour);
+        for (let neighbor of graph[current]) {
+            queue.push(neighbor);
         }
     }
 }
