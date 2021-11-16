@@ -5,15 +5,21 @@
  * components within the graph.
  */
 
+/**
+ * Steps => Loop all the nodes and explore as much we can and mar the viisted node
+ * once each node explored completely then increase the count
+ */
 
 const explore = (graph, src, visited) => {
 
-    if (visited.has(src)) return;
+    if (visited.has(src)) return false;
     visited.add(src);
 
     for (let neighbor of graph[src]) {
         explore(graph, neighbor, visited);
     }
+
+    return true;
 }
 
 const connectedComponentsCount = (graph) => {
@@ -21,7 +27,9 @@ const connectedComponentsCount = (graph) => {
     const visited = new Set();
 
     for (let node in graph) {
-        explore(graph, node, visited);
+        if (explore(graph, node, visited)) {
+            count += 1;
+        }
     }
 
     return count;
