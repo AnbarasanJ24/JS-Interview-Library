@@ -2,8 +2,18 @@
     Solving bigger problem with it own sub problem recursive solution 
     Dont call the same recursive function again and agian 
 
+# Memoization Recipe
+    1. Make it work (Recursive function)
+        Visualize the problem as tree
+        Implement the tree using recirsion
+        test it
+    2. Make it efficient
+        Add a memo object(function argument as key, function result as value)
+        Add base case to return memo values
+        Store function return value into memo value 
+
 <!-- To calculate Time and space complexity -->
-# In DP, Time complexity is based on function calls and space complexity is based on height of the tree
+# In DP Mostly, Time complexity is based on function calls and space complexity is based on height of the tree
 const foo = (n) =>{
     if(n <= 1) return;
     foo(n-1);
