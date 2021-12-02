@@ -5,7 +5,7 @@
 # Memoization Recipe
     1. Make it work (Recursive function)
         Visualize the problem as tree
-        Implement the tree using recirsion
+        Implement the tree using recursion
         test it
     2. Make it efficient
         Add a memo object(function argument as key, function result as value)
