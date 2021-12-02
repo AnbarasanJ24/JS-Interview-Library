@@ -22,8 +22,9 @@ const canSum = (targetSum, numbers) => {
     return false;
 }
 
-// T = O (numbers ^ targetSum) targetsum is the height of the tree, based on target sum function calls are happening
-// S = O (targetSum) , Height of the tree
+// m= targetSum, n= numbers.length
+// T = O (n ^ m) targetsum is the height of the tree, based on target sum function calls are happening
+// S = O (m) , Height of the tree
 
 
 const canSumDP = (targetSum, numbers, memo = {}) => {
