@@ -25,7 +25,7 @@ const bestSum = (targetSum, numbers) => {
         }
     }
 
-    return allCombination.push(combination);
+    return shortestCombination;
 }
 // Brute Force
 // m = target sum , n = numbers length
