@@ -18,7 +18,7 @@ const grid = [
 // same like connected graph problem, here we iterate through grid
 // Need to explore all grid items and on successful explore get the size back
 // Maintain minimum size and compare with function returned value 
-const islandCount = (grid) => {
+const minimumIsland = (grid) => {
     const visited = new Set();
     let min = Infinity;
 
@@ -38,7 +38,7 @@ const islandCount = (grid) => {
 // Check current grid is land or water
 // check current grid is visited or not
 // Explore 4 direction and return  true
-const explore = (grid, r, c, visited) => {
+const exploreSize = (grid, r, c, visited) => {
     const rowInbounds = 0 <= r && r < grid.length;
     const colInbounds = 0 <= c && c < grid[0].length;
     if (!rowInbounds || !colInbounds) return 0;
@@ -50,10 +50,15 @@ const explore = (grid, r, c, visited) => {
 
     visited.add(pos);
     let size = 1;
-    size += explore(grid, r - 1, c, visited);
-    size += explore(grid, r + 1, c, visited);
-    size += explore(grid, r, c - 1, visited);
-    size += explore(grid, r, c + 1, visited);
+    size += exploreSize(grid, r - 1, c, visited);
+    size += exploreSize(grid, r + 1, c, visited);
+    size += exploreSize(grid, r, c - 1, visited);
+    size += exploreSize(grid, r, c + 1, visited);
 
     return size;
 }
+
+console.log(minimumIsland(grid));
+
+// Time : O (row*col)
+// Space : O (row*col)
