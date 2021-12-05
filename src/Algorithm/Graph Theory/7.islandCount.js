@@ -4,7 +4,7 @@
  *  number of islands on the grid. An island is a vertically or horizontally
  *  connected region of land.
  */
-
+// Nested Loops + DFS
 const grid = [
     ['W', 'L', 'W', 'W', 'W'],
     ['W', 'L', 'W', 'W', 'W'],
