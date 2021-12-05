@@ -4,6 +4,9 @@
  * Find number of possible ways to reach start to end 
  */
 
+// Notes => grid(1,1) will always have 1 way (Already we have a way)
+// If there is no row or no column then we can't travel , so m or n = 0 then way 0
+
 const gridTraveler = (m, n) => {
 
     if (m === 1 && n === 1) return 1;
