@@ -2,7 +2,7 @@
 
 // Step1 : Push Head 
 // Step2 : Pop a element and add its neighbour
-// Step3: Repeat 2 until stack is empty 
+// Step3: Repeat 2 until stack or queue is empty 
 
 
 const graph = {
@@ -36,7 +36,7 @@ const depthFirstIterative = (graph, startingPoint) => {
 
 }
 
-// Recursive approach 
+// Recursive approach - Take a element and call recursive function for its neighbour
 // Do whetever we do for one element to all the elements 
 
 const depthFirstRecursive = (graph, startingPoint) => {
@@ -67,6 +67,6 @@ const breadthFirstIterative = (graph, startingPoint) => {
 }
 
 
-// depthFirstIterative(graph, 'a');
-// depthFirstRecursive(graph, 'a');
+depthFirstIterative(graph, 'a');
+depthFirstRecursive(graph, 'a');
 breadthFirstIterative(graph, 'a');

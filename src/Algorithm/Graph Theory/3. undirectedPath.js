@@ -7,7 +7,7 @@
 
 // Here we have a connection between i and j for first item and also
 // we can go from i to j and j to i 
-// Usually we have cycle in directed graph
+// Usually we have cycle in undirected graph
 // we have visited tag to avoid looping again and again in cycle 
 const edges = [
     ['i', 'j'],
@@ -48,6 +48,7 @@ const hasPathDFS = (graph, src, dst, visited) => {
     if (src === dst) return true;
     if (visited.has(src)) return false;
 
+    visited.add(src);
     for (let neighbor of graph[src]) {
         if (hasPathDFS(graph, neighbor, dst, visited)) {
             return true

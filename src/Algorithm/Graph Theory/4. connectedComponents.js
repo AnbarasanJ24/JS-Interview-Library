@@ -6,7 +6,7 @@
  */
 
 /**
- * Steps => Loop all the nodes and explore as much we can and mar the viisted node
+ * Steps => Loop all the nodes and explore as much we can and mark the viisted node
  * once each node explored completely then increase the count
  */
 

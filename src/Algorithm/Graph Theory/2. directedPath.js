@@ -5,6 +5,8 @@
  * exists a directed path between the source and destination nodes.
  */
 
+// Problem Notes : Both Source and dest should be same 
+
 /**
  *  Time complexity 
  *  N = no of Nodes, e = No of edges
@@ -33,9 +35,8 @@ const hasPathDFS = (graph, src, dst) => {
         if (hasPath(graph, neighbor, dst)) {
             return true;
         }
-
-        return false;
     }
+    return false;
 }
 
 const hasPathBFS = (graph, src, dst) => {
