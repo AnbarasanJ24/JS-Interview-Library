@@ -22,5 +22,5 @@ console.log(fib(6))
 console.log(fib(15))
 console.log(fib(100))
 
-// Time complexity O (N)
-// Space Complexity O (N)
+// Time complexity O (N) Array length
+// Space Complexity O (N) Array length
