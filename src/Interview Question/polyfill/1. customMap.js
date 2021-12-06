@@ -21,7 +21,7 @@ Array.prototype.customeMap = function (callback) {
     let result = new Array(sourceArray.length);
 
     for (let index = 0; index <= sourceArray.length; index++) {
-        if (index in sourceArray) {
+        if (sourceArray.includes(sourceArray[index])) {
             result[index] = callback(sourceArray[index], index, sourceArray);
         }
     }
