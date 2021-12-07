@@ -21,7 +21,6 @@ const canSum = (targetSum, numbers) => {
             }
         }
     }
-    console.log(table);
     return table[targetSum];
 }
 
