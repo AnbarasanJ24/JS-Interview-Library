@@ -7,6 +7,3 @@ Section 4 -> Recursion
 Section 5 -> Searching & Sorting Algorithm ( Binary, Bubble, selection, insertion, quick, merge, radix )
 
 Data Structure
-
-
-
