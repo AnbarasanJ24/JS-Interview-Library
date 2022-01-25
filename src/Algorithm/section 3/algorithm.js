@@ -8,7 +8,7 @@
 // Explore concrete examples
 // Break it down 
 // Solve and Simply 
-// Loob back and Refractor 
+// Look back and Refractor 
 
 
 // 1. Understand the problem
@@ -113,3 +113,15 @@ function isAlphaNumeric(char) {
 }
 
 console.log(charCount(str));
+
+// Corner case or Special case
+// String
+    // - special characters
+    // - Space
+    // - empty ('')
+    // - undefined , null
+    // - uppercase and lowercase
+
+// Array
+    // - Empty array []
+    // - null , undefined

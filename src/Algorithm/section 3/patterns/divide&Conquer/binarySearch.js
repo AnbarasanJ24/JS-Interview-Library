@@ -1,6 +1,6 @@
 // Create a function which take sorted array and value to be find in the array. 
 // In case of available return the index else -1
-let arr = [1, 23, 4];
+let arr = [1, 2, 3, 4];
 let searchValue = 4;
 
 // Naive solution
