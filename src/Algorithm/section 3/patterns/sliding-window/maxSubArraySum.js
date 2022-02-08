@@ -10,7 +10,7 @@ function maxSubArraySum1(array, consecutiveDigits) {
 
     // Loop through the array start with i = 0
     // let initialize currentSum = 0;
-    // Loop through the same array start with j = i
+    // Loop through the same array start with j = i ; j < i+3
     // currentSum += arr[i]
     // Find the max b/t current sum and max sum -> update the result with Max sum
 
