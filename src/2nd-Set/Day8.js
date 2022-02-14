@@ -34,3 +34,44 @@ var setZeroes = function (matrix) {
 
 // Time complexity O((N*M))
 // Space complexity O(N+M)
+
+
+// Given an array nums of distinct integers, return all the possible permutations.You can return the answer in any order.
+// Input: nums = [1, 2, 3]
+// Output: [[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 1, 2], [3, 2, 1]]
+// https://leetcode.com/problems/permutations/
+
+// Part of https://takeuforward.org/data-structure/next_permutation-find-next-lexicographically-greater-permutation/
+
+var permute = function (nums, index = 0) {
+    let result = [];
+    calculatePermutations(0, nums, result);
+    return result;
+
+};
+
+var calculatePermutations = function (index, nums, result) {
+
+    if (index === nums.length) {
+        let current = [];
+        for (let i = 0; i < nums.length; i++) {
+            current.push(nums[i]);
+        }
+        result.push(current);
+        return;
+    }
+    for (let i = index; i < nums.length; i++) {
+        swap(i, index, nums);
+        calculatePermutations(index + 1, nums, result);
+        swap(i, index, nums);
+    }
+}
+
+var swap = function (first, second, nums) {
+    let temp = nums[first];
+    nums[first] = nums[second];
+    nums[second] = temp;
+}
+
+// Time complexity O(N!*N)
+// Space complexity O(N+M)
