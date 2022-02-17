@@ -32,3 +32,46 @@
 // 3. After finding 3, 4, swap both numbers to 1,4,5,3,2
 // 4. In order to get least ranking one from 4, reverse the element after 4 i,e 5,3,2 (Increasing order to decereasing order)
 // 5. finaly we will get next permutation 1,4,2,3,5 
+
+
+
+var nextPermutation = function (nums) {
+    let index1 = -1;
+    let index2 = -1;
+
+    for (let i = nums.length - 2; i >= 0; i--) {
+        if (nums[i] < nums[i + 1]) {
+            index1 = i;
+            break;
+        }
+    }
+
+    if (index1 >= 0) {
+        for (let i = nums.length - 1; i >= 0; i--) {
+            if (nums[i] > nums[index1]) {
+                index2 = i;
+                break;
+            }
+        }
+        swap(nums, index1, index2);
+    }
+
+    reverse(nums, index1 + 1, nums.length - 1);
+};
+
+var swap = function (nums, idx1, idx2) {
+    let temp = nums[idx1];
+    nums[idx1] = nums[idx2];
+    nums[idx2] = temp;
+}
+
+var reverse = function (nums, left, right) {
+    while (left < right) {
+        swap(nums, left++, right--);
+    }
+}
+
+// Time complexity O (N)
+// Space Complexity O (1)
+
+
