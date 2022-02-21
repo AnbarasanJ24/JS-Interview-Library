@@ -54,3 +54,49 @@ var maxProfit = function (prices) {
 };
 
 // Time complexity O(N) and space complexity O(1)
+
+
+// Maximum Subarray
+// Given an integer array nums, find the contiguous subarray(containing at least one number) which has the largest sum and return its sum.
+// A subarray is a contiguous part of an array.
+
+// Input: nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
+// Output: 6
+// Explanation: [4, -1, 2, 1] has the largest sum = 6.
+
+// https://leetcode.com/problems/maximum-subarray/
+// https://takeuforward.org/data-structure/kadanes-algorithm-maximum-subarray-sum-in-an-array/
+
+// Naive
+// Run 2 loops and maintain a currentProfit and maxProfit
+// for i= 0 to N
+//  currentProfit= 0;
+//  for j = i to N
+//      currentProfit += arr[j]
+//      maxProfit = Math.max(maxSum, currentProfit)
+
+// Time complexity O(N^2) and space complexity O(1)
+
+// Efficient 
+
+// Consider each day as value returned from business, so maintain currentProfit and maxProfit, 
+// Add the current value to the current profit
+// If it gives Positive Number then it will conribute to max profit  
+// If not will not take current value and current value is less than 0 the max it as 0 (because negative value will not contribute for profit)
+
+var maxSubArray = function (nums) {
+
+    let currentProfit = 0;
+    let maxProfit = nums[0];
+
+    for (let num of nums) {
+        currentProfit += num;
+        maxProfit = Math.max(maxProfit, currentProfit);
+
+        currentProfit = currentProfit < 0 ? 0 : currentProfit;
+    }
+
+    return maxProfit;
+
+};
+
