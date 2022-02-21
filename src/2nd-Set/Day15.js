@@ -95,7 +95,6 @@ var maxSubArray = function (nums) {
 
         currentProfit = currentProfit < 0 ? 0 : currentProfit;
     }
-
     return maxProfit;
 
 };
