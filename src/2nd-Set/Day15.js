@@ -76,8 +76,7 @@ var maxProfit = function (prices) {
 //      maxProfit = Math.max(maxSum, currentProfit)
 
 // Time complexity O(N^2) and space complexity O(1)
-
-// Efficient 
+4// Efficient 
 
 // Consider each day as value returned from business, so maintain currentProfit and maxProfit, 
 // Add the current value to the current profit
