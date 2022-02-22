@@ -10,6 +10,23 @@
 
 // https://leetcode.com/problems/substrings-of-size-three-with-distinct-characters/
 
+// Naive
+// Generate all substring and check for uniquiness. If it is unique then increase the count
+// for i = 0 to arr.length
+//      for j = i+2 to arr.length
+//          if (isunique(i,j)) => goodString++
+
+// Time complexity O (N^2) and space complexity O(1)
+
+
+// Efficient
+// Since it is 3 character, we can find uniqueness without set
+// first find the uniqueness for first three letters then start looping from 3rd index
+// Now a = previous b , b = previous c and c = current element
+// Now run the uniqueness for a,b,c if so increase good string count 
+
+
+
 var countGoodSubstrings = function (s) {
     let goodString = 0;
     let currentWindow = [];
@@ -47,13 +64,25 @@ var isUnique = function (a, b, c) {
 
 
 // You are given an integer array nums consisting of n elements, and an integer k.
-// Find a contiguous subarray whose length is equal to k that has the maximum average value and return 
-// this value.Any answer with a calculation error less than 10 - 5 will be accepted
+// Find a contiguous subarray whose length is equal to k that has the maximum average value and return
+// this value.Any answer with a calculation error less than 10^ - 5 will be accepted
 // Input: nums = [1, 12, -5, -6, 50, 3], k = 4
 // Output: 12.75000
 // Explanation: Maximum average is(12 - 5 - 6 + 50) / 4 = 51 / 4 = 12.75
 
 // https://leetcode.com/problems/maximum-average-subarray-i/
+
+// Naive
+// Find the sub array using 2 loops where maintain current sum and max sum
+// for i = 0 to N-k
+//      currentSum = 0
+//          for j = 0 to j < i + k-1
+//              currentSum += arr[i]
+//      maxSum = Math.max(maxSum, currentSum)
+//  return maxSum/ k
+
+// Time complexity O (N^2) and space complexity O(1)
+
 
 var findMaxAverage = function (nums, k) {
 
