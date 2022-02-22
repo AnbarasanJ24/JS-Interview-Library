@@ -52,3 +52,63 @@ var rotate = function (matrix) {
 };
 
 // Time complexity O (N*N) and space complexity O (1)
+
+
+// Merge Intervals
+// Given an array of intervals where intervals[i] = [starti, endi], merge all overlapping intervals, and return an array of the
+// non - overlapping intervals that cover all the intervals in the input.
+
+// Input: intervals = [[1, 3], [2, 6], [8, 10], [15, 18]]
+// Output: [[1, 6], [8, 10], [15, 18]]
+// Explanation: Since intervals[1, 3] and[2, 6] overlaps, merge them into[1, 6].
+
+// https://takeuforward.org/data-structure/merge-overlapping-sub-intervals/
+// https://leetcode.com/problems/merge-intervals/
+
+// Naive
+// Sort the intervals to make sure, it is happening on correct order
+// Run two loops and take one element compare with all the other for mergeing condition
+// Merging condition would be next first should be less than current second [1,3]-> current, [2,6]=> should be next
+
+// let result = [];
+// for i = 0 to arr.length -1
+//  let start = arr[0][0], end = arr[0][1];
+//  for j = i+1 to arr.length
+//      if(arr[j][0] < end)
+//          end = arr[j][1]
+//  result.push(start,end)
+//  return result;
+
+// Time complexity O (N log N) -> Sorting + O(N^2) ->Looping, space complexity O(N)
+
+// Efficient
+// Same like Naive, will conside first element two inputs as start end
+// Run a loop and check current element first is less than end, if so update th end
+// If not add start, end to the result and make new start , end
+
+var merge = function (intervals) {
+    if (intervals == null || intervals.length === 0) return [[]];
+    let result = [];
+
+    // Sort the intervals based on start 
+    intervals.sort((a, b) => a[0] - b[0]);
+
+
+    let start = intervals[0][0];
+    let end = intervals[0][1];
+
+    for (let i = 1; i < intervals.length; i++) {
+        if (intervals[i][0] <= end) {
+            end = Math.max(end, intervals[i][1])
+        } else {
+            result.push([start, end]);
+            start = intervals[i][0];
+            end = intervals[i][1];
+        }
+
+    }
+    result.push([start, end]);
+    return result;
+};
+
+// Time complexity O (N log N) -> Sorting + O(N) ->Looping, space complexity O(1)
