@@ -1,0 +1,3 @@
+- Browser by default handles the responsiveness, So dont give width and height to change the behaviour 
+- Its good to avoid giving static width to the parent container and child container should follow width in %
+- We can avoid the height of the container and my using padding we can give space to the child 

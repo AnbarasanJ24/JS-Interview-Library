@@ -1,47 +1,16 @@
+const arrayBufferToString = require('arraybuffer-to-string')
 
-// Dynamic Connectivity - Union-Find
-// It checks if two objects are connected or not and
-// Make connection between two objects
 
-/* 0, 1, 2, 3, 4, 5, 6, 7, 8 */
-let arr = [0, 1, 1, 8, 8, 0, 0, 1, 8]
 
-// Here {0,5} & {1,2,7} & {3,4,7,8} are connected
-//  because they have same values
 
-class UF {
-    id = [];
+// 0x02000000B020EC69E1BC980F21F5F4C29E4D47590095E445886AB99825DA7AB8A78A5A710A64E46DC245D2A1DA1AF95E34DEC224
+// const hex = arrayBufferToString(data, 'hex')
+// console.log("hex", `0x${hex.toUpperCase()}`);
 
-    constructor(count) {
-        this.count = count;
-        for (let i = 0; i < this.count; i++) {
-            this.id[i] = i;
-        }
-    }
 
-    // Check if p and q values are same, if so they are connected  
-    find(idx1, idx2) {
-        return this.id[idx1] === this.id[idx2];
-    }
-
-    union(idx1, idx2) {
-        // base case
-        if (idx1 < 0 || idx1 > this.count) return;
-        if (idx2 < 0 || idx2 > this.count) return;
-
-        let p = this.id[idx1];
-        let q = this.id[idx2];
-
-        for (let i = 0; i < this.count; i++) {
-            if (this.id[i] === p) this.id[i] = q;
-        }
-
-        return this.id;
-    }
-}
-
-let uf = new UF(10);
-uf.union(4, 3);
-uf.union(3, 8);
-
-console.log(uf.find(3, 1))
+let data = [
+    2, 0, 0, 0, 176, 32, 236, 105, 225, 188, 152, 15, 33, 245, 244, 194, 158, 77, 71, 89, 0, 149, 228, 69, 136, 106, 185, 152, 37, 218, 122, 184, 167, 138, 90, 113, 10,
+    100, 228, 109, 194, 69, 210, 161, 218, 26, 249, 94, 52, 222, 194, 36
+]
+const buffer = Buffer.from(data).toString('hex');
+console.log("Buffer", `0x${buffer.toUpperCase()}`);
