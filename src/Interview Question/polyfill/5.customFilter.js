@@ -9,20 +9,20 @@
 // Same like custom Map, It's return a array 
 // Function should be called for each value 
 // If the function return true then add it to the result else not 
-// function is called qith num, index, numbers
+// function is called with num, index, numbers
 
 
 
-Array.prototype.customFilter = function (callback, context) {
+Array.prototype.customFilter = function (callback) {
     if (typeof callback !== 'function') {
         throw new Error('Invalid argument');
     }
 
-    const result = [];
     const sourceArray = this;
+    const result = [];
 
     for (let index = 0; index < sourceArray.length; index++) {
-        if (callback.call(context, sourceArray[index], index, sourceArray)) {
+        if (callback(sourceArray[index], index, sourceArray)) {
             result.push(sourceArray[index]);
         }
     }
