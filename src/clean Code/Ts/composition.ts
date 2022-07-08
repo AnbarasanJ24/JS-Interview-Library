@@ -61,6 +61,6 @@ class Ram {
     }
 }
 
-const anbu = new Anbu('Anbu');
+const anbu2 = new Anbu('Anbu');
 anbu.code.code();
 anbu.play.playCricket();

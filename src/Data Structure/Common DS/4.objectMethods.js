@@ -7,7 +7,7 @@ let userDetails = Object.assign({ "address": "Pondicherry" }, user);
 console.log(userDetails); //{ address: 'Pondicherry', userName: 'Anbarasan', age: 25 }
 
 // create() - create new object using passed object as parent(base object), where methods will be re-used
-let user = { "userName": "Anbarasan", "age": 25, print: function () { console.log("Name is", this.userName) } };
+let user1 = { "userName": "Anbarasan", "age": 25, print: function () { console.log("Name is", this.userName) } };
 let newUser = Object.create(user)
 newUser.userName = "Ram";
 
@@ -19,7 +19,7 @@ console.log(user.print()); //Name is Anbarasan
 // freeze() - we cant add, remove or change any properties in the object
 // isFrozen() - return true if the object was frozen before
 // In strict mode it will throw error else it will make changes
-let user = { "userName": "Anbarasan", "age": 25 };
+let user3 = { "userName": "Anbarasan", "age": 25 };
 Object.freeze(user);
 user.address = "Test"; // No Effect
 user.age = 28 // No Effect
