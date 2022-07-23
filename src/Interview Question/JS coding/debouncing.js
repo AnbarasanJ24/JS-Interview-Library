@@ -18,7 +18,7 @@ const getData = (term) => {
 // Debounce function will return another function
 const debounce = function debounce(func, wait) {
     let timer;
-    
+
     return (...args)=>{
       clearTimeout(timer);
       timer = setTimeout(()=>{
@@ -30,3 +30,10 @@ const debounce = function debounce(func, wait) {
 // This fetchsearchData will be called with 300 ms time frame
 // It will collect all data till 300ms and give the final result
 const fetchSearchData = debounce(getData, 300);
+
+
+// SCROLL EVENT
+const getScrollCount = debounce(() => getData('Term'), 300);
+
+// Window looking for scroll event 
+window.addEventListener('scroll', getScrollCount)
