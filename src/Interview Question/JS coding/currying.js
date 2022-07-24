@@ -1,6 +1,6 @@
 // https://bigfrontend.dev/problem/implement-curry
 
-// Revise Statememts
+// Currying
 // In order to call a function, we need to provide all argumments to get the result
 // But in case of currying, we will tranform a function into partial function
 // That means, it will take argumets whenever user provide at different times
@@ -19,7 +19,6 @@ function curry(func) {
         } else {
             return function (...args2) {
                 return curried.apply(this, args.concat(args2))
-
             }
         }
     }
