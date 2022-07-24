@@ -9,8 +9,12 @@
 
  function race(promises) {
     return new Promise((resolve, reject)=>{
+
+      if(!promises.length) resolve(promises);
+
       promises.forEach(promise =>{
-        Promise.resolve(promise).then(res=>resolve(res))
+        Promise.resolve(promise)
+        .then(res=>resolve(res))
         .catch(err =>  reject(err));
       })
     })

@@ -1,3 +1,11 @@
+/*
+    Promise - Its a object which carries either a success or failure value of a asynchronous operation 
+    It can be pending (when created), fulfilled - operation completed successfully, rejected - operation failed
+    By using then and get the value it will be settled
+*/
+
+
+
 // General Working of Promise 
 
 function add(a, b) {
