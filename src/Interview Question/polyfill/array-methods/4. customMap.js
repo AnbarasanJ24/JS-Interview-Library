@@ -5,29 +5,34 @@
  * o/p => [2,4,6]
  */
 
+// *** Learning Map prototype is enough to solve filter , foreach, find with slight modification ***
+
 // Notes
 // It will return an array
 // It will call a function on every value in the array 
 // Before call the function check  element exits in array 
-// Each function will take three arguments, num, index, numbers
+// Each function will take three parameters, num, index, numbers
 
-Array.prototype.customeMap = function (callback) {
+// By default Map callback function gets its callback value and thisArgs (context)
 
-    if (typeof callback !== 'function') {
-        throw new Error("Invalid function");
+Array.prototype.customeMap = function(callback, thisArgs) {
+    if(typeof callback != 'function'){
+      throw new Error('Invalid Funtion');
     }
-
+  
     let sourceArray = this;
-    let result = new Array(sourceArray.length);
-
-    for (let index = 0; index <= sourceArray.length; index++) {
-        if (sourceArray.includes(sourceArray[index])) {
-            result[index] = callback(sourceArray[index], index, sourceArray);
-        }
+    let length = this.length;
+    let result = new Array(length);
+  
+    for(let index = 0 ; index < length ; index++){
+      if(index in sourceArray){
+        result[index] = callback.call(thisArgs, sourceArray[index], index, sourceArray)
+      }
     }
-
+  
     return result;
-}
+  }
+  
 
 const numbers = [1, 2, 3];
 const result = numbers.customeMap(num => num * 2)

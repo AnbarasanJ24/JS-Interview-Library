@@ -9,7 +9,7 @@
 // Same like custom Map, It's return a array 
 // Function should be called for each value 
 // If the function return true then add it to the result else not 
-// function is called with num, index, numbers
+// function is called with num, index, numbers 
 
 
 
@@ -23,7 +23,7 @@ Array.prototype.customFilter = function (callback) {
 
     for (let index = 0; index < sourceArray.length; index++) {
         if (callback(sourceArray[index], index, sourceArray)) {
-            result.push(sourceArray[index]);
+            result[index] = sourceArray[index];
         }
     }
     return result;

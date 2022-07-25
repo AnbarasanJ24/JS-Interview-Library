@@ -1,8 +1,12 @@
-// It will take a function and return memoized version of it
-// The input and output will be function but output with more power
-// create a cache and check the function argument present in it or not
-// If it is already cached then return cache value else save it in the cache
+/*
+ * Memoize: It will take a function and return memoized version of it
+   The returned function has cache to store and retrive the result
+   create a cache and check the function argument present in it or not
+   we can take argumets either using ...args or argument keyword
+   If it is already cached then return cache value else save it in the cache
+ */
 
+// Here there is no ...args passed in line 12, so alternative arguments keywords (same like ...args)
 function memoize(callbackFn){
   let cache = {};
   return function(){
@@ -33,3 +37,17 @@ function factorial(n) {
  console.log( memoizedFactorial(10));
  console.timeEnd('Third');
  
+
+//  BFE Version
+function memo(func, resolver) {
+  let cache = {};
+  return function(...args){
+    // Take either ...args or arguments
+    // on calling the resolver it will give a key else create own key using join method
+    let currentKey = resolver ?resolver(...args) : args.join('_');
+    if(currentKey in cache) return cache[currentKey];
+
+    cache[currentKey] = func.call(this, ...args);
+    return cache[currentKey];
+  }
+}
