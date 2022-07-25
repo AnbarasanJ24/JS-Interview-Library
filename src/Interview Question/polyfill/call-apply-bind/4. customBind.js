@@ -3,28 +3,20 @@
 // We can call the function, whenever it is required
 
 // Usecase : Create a custom bind function which takes context reference and parameter and return a new function 
-// Corner and working case
-// 1. Function should take this reference and return new function
-// 2. Function should take arguments and return with new function
-// 3. Function should take arguments form retutrned function too
+// Corner and working case  same like call and apply, only difference is we need to return the function
 
 
-// Function.prototype.customBind = function (...args) {
-//     let calledFunction = this;
-//     let context = args[0]; //To get context 
-//     let otherParms = args.slice(1); // Remove the context and return 
+Function.prototype.customBind = function (thisArgs, ...args) {
+    let func = this;
+    let context = thisArgs ?? window;
+    context = Object(context);
 
-//     return function (...args2) {
-//         let params = otherParms.concat(args2);
-//         calledFunction.apply(context, params);
-//     }
-// }
-
-Function.prototype.customBind = function (context, ...args) {
-    context.calledFunction = this;
+    // Attach the function inside the context
+    const identifier = Symbol('func');
+    context[identifier] = func;
 
     return function (...args2) {
-        context.calledFunction(...args, ...args2);
+        return context[identifier](...args, ...args2);
     }
 }
 let user = {
