@@ -28,3 +28,4 @@ Array.prototype.flatten =  function(){
 }
 
 console.log(inputArray.flatten())
+

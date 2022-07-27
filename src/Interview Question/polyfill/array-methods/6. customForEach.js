@@ -19,7 +19,11 @@ nums.customForEach((num,index,nums) => console.log(num, index, nums))
 
 
 
-// Find : It is more like Filter
+// Find : This method is used to find the element in the array, 
+// once its found since we need send single value, we can return the result immediately
+// It takes a callback, When the find condition is valid inside callback it will return true 
+// Once it returns true then immediate return the find value, If not -1
+
 Array.prototype.myFind = function(callback) {
     let arr = this;
 
@@ -31,3 +35,7 @@ Array.prototype.myFind = function(callback) {
 
     return -1;
 }
+
+const nums1 = [1,2,3,4]
+nums1.find((num,index, nums) => num === 4) //Return 4
+nums1.find((num,index, nums) => num === 25) //Return -1
