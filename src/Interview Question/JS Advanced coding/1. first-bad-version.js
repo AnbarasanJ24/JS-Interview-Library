@@ -5,6 +5,7 @@
  * Since the Good and Bad version is sorted, we can find it uisng Binary search
  */
 
+// Youtube Link https://www.youtube.com/watch?v=SiDMFIMldgg
 
 /**
  * Let keep left as zero and right as version, we need to run a loop from left to right
