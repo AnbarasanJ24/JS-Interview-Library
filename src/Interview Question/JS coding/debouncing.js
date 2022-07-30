@@ -1,5 +1,5 @@
-// Debouncing - Collect all value for certain amount of time and return the latest value
-// Debounce function will delay the invoke 
+// Debouncing - Debounce function will delay the invoke 
+// Collect all value for certain amount of time and return the latest value
 // Usually when we have serach functionality, for each keyword will call the API
 // Instead of calling API for each word, we can hold for few ms and collect the user input then make a API call
 
@@ -16,7 +16,7 @@ const getData = (term) => {
 }
 
 // Debounce function will return another function
-const debounce = function debounce(func, wait) {
+const debounce = function(func, wait) {
     let timer;
 
     return (...args)=>{

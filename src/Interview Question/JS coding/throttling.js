@@ -1,5 +1,6 @@
 // Throttling - It will call the function only once during the given limit
-// Mean time if the user tries to call it multiple times, throttle will not consider the function
+// If the user click the button multiple times in range of 0 to 100ms
+// Each click will make a API function, we dont want to take all function so by throtlling it will take only one function during the limit
 // We need to decide when we should call a function and when we should not call it
 
 // Will keep a boolean to decide the function needs to be called or not 
