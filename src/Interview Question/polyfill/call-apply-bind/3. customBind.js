@@ -3,7 +3,8 @@
 // We can call the function, whenever it is required
 
 // Usecase : Create a custom bind function which takes context reference and parameter and return a new function 
-// Corner and working case  same like call and apply, only difference is we need to return the function
+// Corner and working case  same like call and apply, only difference is we need to return the function 
+// On calling the returned function,we need to call the actual function and return the response 
 
 
 Function.prototype.customBind = function (thisArgs, ...args) {
@@ -16,7 +17,9 @@ Function.prototype.customBind = function (thisArgs, ...args) {
     context[identifier] = func;
 
     return function (...args2) {
-        return context[identifier](...args, ...args2);
+        let response = context[identifier](...args, ...args2);
+        delete context[identifier];
+        return response;
     }
 }
 let user = {

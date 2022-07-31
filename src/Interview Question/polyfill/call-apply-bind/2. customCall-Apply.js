@@ -21,11 +21,11 @@ let ram = {
 
 /*
     Approach : Basic call function will take thisArgs and ...args and it will call a function with those values
-    Function (displayname), we need to invoke will be "this" keyword inside custom call,
+    Function (displayname), will be available as "this" keyword inside custom call  method,
     In order to handle null, undefined we just check thisArgs, If anything is null or undefined use window object
     There is a possibility of sending primitive value as thisArgs, so convert everything to object using Object(context)
 
-    Now to call a function on context object, we need to first attach the function inside it. context = > { func : displayname}
+    Now to call a function on context object, we need to first attach the function inside it. context => { func : displayname}
     To reduce name coliision, create unique name using symbol() and attach the function context => {func1234 : displayname}
     Now call the function with args and delete the identifier after it 
 */
