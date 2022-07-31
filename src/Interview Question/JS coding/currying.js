@@ -35,3 +35,32 @@ console.log(loggedTillDate(10.55, "Testing"));
 //Case 3
 const loggedTillTime = curriedLog("28-04-2022", 10.55);
 console.log(loggedTillTime("Testing"));;
+
+
+
+// Create a sum(), which makes following possible
+// Here sum function will call another function and that function will again call another function
+// Once the function doesn't have any arguments then return the stored value 
+// Since we are calling the function again and agian, we can solve it easily by recursion
+// Just check the function contains arguments if not that is our base condition so return the stored value i.e num (parent function argument) 
+// If there are two values, then recursively call the sum function 
+
+
+function sum(num) {
+    const sumInner = (num2) => {
+      if(!num2) {
+        return num;
+      } else {
+        return sum(num + num2);
+      }
+    }
+    sumInner.valueOf = () => num;
+    sumInner.toString = () => num;
+    return sumInner
+  }
+
+const sum1 = sum(1)
+sum1(2) == 3 // true
+sum1(3) == 4 // true
+sum(1)(2)(3) == 6 // true
+sum(5)(-1)(2) == 6 // true
