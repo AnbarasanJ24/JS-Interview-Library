@@ -10,5 +10,7 @@ function myObjectCreate(parentProto) {
     }
     let obj = {};
     obj.__proto__ = parentProto;
+    //alternative 
+    Object.setPrototypeOf(obj, parentProto);
     return obj;
   }

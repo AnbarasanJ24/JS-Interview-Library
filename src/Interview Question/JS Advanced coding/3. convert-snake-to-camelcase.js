@@ -5,13 +5,24 @@
 
 
 /**
- * We need to compare two characters to check the next char is underscore or not
- * First case : Add the first char and if the first char is not _ then it sequence of character, so will move on
- * If the first char is underscore and there is second character exists then check next condition
- * Second Case: Check the second character is not underscore then we have two scenerio _is_flag (underscore can be at first or middle)
- * Check index !== 0 then it will be middlecase, so remove the underscore and made teh secon char as uppercase
- * Third Case: Since second char will be underscore, it is case of docuble underscore, so add to the result directly
+ * we have four scenerios, no underscore, last underscore, middle underscore and first underscore
+ * 
+ * Let solve no underscore and last underscore, Just add the first char to the result then check
+ * first char is not underscore then it is no underscore, Next check next element [index+1] exists for first char if not we are at last underscore 
+ * In above sceberio, we need to just move on, so increase index++
+ * 
+ * Now solve middle case scenerio, if index !=0 and second char[index +1] is not underscore 
+ * then pop the underscore and captalize the second char and push to the result
+ * 
+ * Now we have first underscore scenerio which is index === 0 and second char will not be underscore, simpley push the second char to the result
  */
+
+ snakeToCamel('snake_case')  // 'snakeCase'
+ snakeToCamel('is_flag_on')  // 'isFlagOn'
+ snakeToCamel('is_IOS_or_Android') // 'isIOSOrAndroid'
+ snakeToCamel('_first_underscore') // '_firstUnderscore'
+ snakeToCamel('last_underscore_') // 'lastUnderscore_'
+ snakeToCamel('_double__underscore_') // '_double__underscore_'
 
 
 

@@ -1,8 +1,8 @@
 /**
  * Assume  we have array of good and bad version [G, G, G, B, B, B] and a function which tell the version is good or bad
- * we need to find from where the version the version went bad
+ * we need to find from where the version  went bad
  * we can call the version from 0 to given version linearly, but it will take O (N)
- * Since the Good and Bad version is sorted, we can find it uisng Binary search
+ * Since the Good and Bad version is sorted, we can find it using Binary search
  */
 
 // Youtube Link https://www.youtube.com/watch?v=SiDMFIMldgg
