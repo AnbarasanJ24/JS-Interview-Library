@@ -7,7 +7,7 @@
  */
 
 /**
- * Other Notes - JSON is puerly a string, contains only properties not methods
+ * Other Notes - JSON is purely a string, contains only properties not methods
  * Only double quote is valid, it will not accept sigle quote. It will not accept . , also 
  * We can include array, object , number, string, boolean in JSON, everything is valid 
  * property should be double quoted 

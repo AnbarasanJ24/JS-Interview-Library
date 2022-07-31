@@ -3,16 +3,15 @@
 // It will run all the function parallel from the array and once everything is executed it will return call result callback
 // In case of any error, it will stop execution and return null
 
-function createAsynFunction() {
-    let value = Math.floor(Math.random() * 10);
+function createAsynFunction(delay) {
     return function (callback) {
         setTimeout(() => {
             callback(null, `${value} Function is executed`)
-        }, value * 1000);
+        }, delay);
     }
 }
 
-const tasks = [createAsynFunction(), createAsynFunction(), createAsynFunction()];
+const tasks = [createAsynFunction(1000), createAsynFunction(2000), createAsynFunction(3000)];
 
 function asynParallel(taskList, resultsCallBack) {
     let result = [];

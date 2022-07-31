@@ -7,15 +7,15 @@
 // Whichever is resolved or reject first will be returned
 
 
- function race(promises) {
-    return new Promise((resolve, reject)=>{
+function race(promises) {
 
-      if(!promises.length) resolve(promises);
-
-      promises.forEach(promise =>{
-        Promise.resolve(promise)
-        .then(res=>resolve(res))
-        .catch(err =>  reject(err));
-      })
+  if (!promises.length) resolve(promises);
+  
+  return new Promise((resolve, reject) => {
+    promises.forEach(promise => {
+      Promise.resolve(promise)
+        .then(res => resolve(res))
+        .catch(err => reject(err));
     })
-  }
+  })
+}

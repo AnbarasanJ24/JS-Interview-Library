@@ -1,8 +1,6 @@
 
 /*
-    * Create a custom Promise
-    * we need to create custom promise step by step 
-    * Need to have custom fetch so that we can return our custom promise
+    * Create a custom Promise step by step, first will create a method that return our custom promise
     * Promise class will be created with callback function
 */
 
@@ -65,7 +63,7 @@ class MyPromise {
     }
 
     onReject(error) {
-        this.handleError(error);
+                                                                                            
     }
 
 

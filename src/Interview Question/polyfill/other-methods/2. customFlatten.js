@@ -14,6 +14,9 @@
 // 3. If it is  Array then recusrively call the method again else add it to the result
 // 4. For each recursive call, we proccessed one pair of array so reduce the depth by 1
 
+
+// https://bigfrontend.dev/problem/implement-Array-prototype.flat
+
 let inputArray = [1, 2, [3, 4], 5, [[[6, 7], 8, [[[[9]]]]]]];
 
 Array.prototype.flatten =  function(...args){
@@ -38,23 +41,9 @@ function flatten(arr, depth, result) {
 }
 
 console.log(inputArray.flatten())
+console.log(inputArray.flatten(arr, 1))
+console.log(inputArray.flatten(arr, 2)) 
 
-
-// https://bigfrontend.dev/problem/implement-Array-prototype.flat
-
-// we can flat the array with given depth,
-// when we encounter a array take the elements and push it to the new array
-// Array.isArray(arr) will check and confirm whether it is array or not
-// 
-
-const arr = [1, [2], [3, [4]]];
-console.log(flat(arr))
-console.log(flat(arr, 1))
-console.log(flat(arr, 2))
-
-function flat(arr, depth = 1) {
-   
-}
 
 
 

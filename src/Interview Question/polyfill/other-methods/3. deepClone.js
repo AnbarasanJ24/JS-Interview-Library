@@ -1,7 +1,8 @@
 /**
- * Deep Clone - when we use direct assignment to take a clone, both reference will be same
- * By using Destructing or Object assign, it will clone only immediate keys. On comparing it will give false 
- * But mutation in nested keys will result in both reference
+ * Deep Clone - when we use direct assignment to take a clone, both object point to same reference (Example Below)
+ * so on comparing this will give true and also change in one object will affect the other object
+ * By using Destructing or Object assign, it will clone only immediate keys. On comparing the reference it will give false 
+ * But mutation (change) in nested keys value (address.state) in below exmaple will result in change the value in both objects 
  */
 
 // https://www.youtube.com/watch?v=M7CBgdN58UE&t=688s
@@ -25,6 +26,9 @@ let assignClone = Object.assign({}, user);
 console.log(user === destructClone); //False
 console.log(user === assignClone); //False
 user.address.pincode = '605005'; //Reflect in both objects
+
+// We can solve this using JSON stringify but it will take more time for execution
+let clonedUser1 = JSON.parse(JSON.stringify(user))
 
 /**
  * Approach - Based on the Input, Deepclone will return a object or Array

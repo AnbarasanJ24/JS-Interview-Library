@@ -38,7 +38,7 @@ function myPromiseAll(promises) {
           .catch(err => reject(err))
       })
     })
-  }
+  }          
 
 
 //run promise.all
