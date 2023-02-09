@@ -12,24 +12,3 @@
 // const buffer = Buffer.from(data).toString('hex');
 // console.log("Buffer", `0x${buffer.toUpperCase()}`);
 
-console.log("Test")
-
-// create mock function to API data 
-// debounce function takes a fun and delay 
-// clear the exiting set timeout and start a new one 
-
-const getData = (term) => console.log('Mock for API server ');
-
-function debounce(fn, delay) {
-    let timer;
-    return function (...args) {
-        clearTimeout(timer);
-        timer = setTimeout(() => {
-            fn.apply(this, args)
-        }, delay)
-    }
-}
-
-const debouncedResize = debounce(() => getData('Term'), 300)
-
-window.addEventListener('resize',debouncedResize)

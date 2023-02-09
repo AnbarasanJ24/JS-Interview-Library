@@ -13,11 +13,13 @@
  */
 
 
-
-const pipe = (...functions)=>{
+/**
+ * Pipe
+ */
+const pipe = (...functions) => {
     console.log(functions)
-    return (args)=>{
-        return functions.reduce((acc, fn)=> fn.call(this, acc), args);
+    return (args) => {
+        return functions.reduce((acc, fn) => fn.call(this, acc), args);
     }
 }
 const add5 = num => num + 5;
@@ -25,24 +27,29 @@ const multiplyBy5 = num => num * 5;
 const multiplyAndAdd = pipe(add5, multiplyBy5);
 console.log(multiplyAndAdd(5));
 
+/**
+ * Compose 
+ */
 const compose1 = (...functions) => {
     // Reversing to run from right to left
     functions.reverse();
     return (args) => {
-        return functions.reduce((acc, fn) => {fn.call(this, acc)}, args);
+        return functions.reduce((acc, fn) => { fn.call(this, acc) }, args);
     }
 }
+const multiplyAndAdd1 = compose1(add5, multiplyBy5);
 
-// const multiplyAndAdd = compose1(add5, multiplyBy5);
 
 
-// Another Variation
+/**
+ * Another Variation 
+ */
 const compose = (...functions) => {
     let fnLength = functions.length;
     let result;
     return function (...args) {
         for (let i = fnLength - 1; i >= 0; i--) {
-            let fn = functions[i]; 
+            let fn = functions[i];
             result = (i == (fnLength - 1)) ? fn(...args) : fn(result);
         }
         return result;

@@ -7,17 +7,17 @@
 // Usually when we have search functionality, for each keyword will call the API
 // Instead of calling API for each word, we can hold for few ms and collect the user input then make a API call
 
-// Create debounce function which takes two parameters i.e a function which fetch data and delay and finnaly it will return a new function
-// Just call the passed function after the delay using settimeout and also make sure previous timer is cleared
-// Returned function will be mapped in HTML
-// Usecase : Capturing screen size event, scroll event call ->lazy 
-
-
 let counter = 0;
 // Function called when the user type something
 const getData = (term) => {
     console.log("Data", ++counter, term)
 }
+
+// Create debounce function which takes two parameters i.e a function which fetch data and delay and finnaly it will return a new function
+// Just call the passed function after the delay using settimeout and also make sure previous timer is cleared
+// Returned function will be mapped in HTML
+// Usecase : Capturing screen size event, scroll event call ->lazy 
+
 
 // Debounce function will return another function
 const debounce = function(func, wait) {
