@@ -5,7 +5,7 @@
  */
 
 const id = setTimeout(() => {
-    console.log("Understanding Set Timeout")
+  console.log("Understanding Set Timeout")
 }, 5000);
 
 console.log(id);
@@ -25,17 +25,17 @@ console.log(id);
 /**
  * cancel all timer from window.setTimeout
  */
- function clearAllTimeout() {
-    window.__timeOuts.forEach(el => clearTimeout(el))
-  }
-  
-  window.__timeOuts = [];
-  const originalSetTimeout = window.setTimeout;
-  
-  window.setTimeout = (...args) => {
-  
-    const currentId = originalSetTimeout(...args);
-    window.__timeOuts.push(currentId);
-  
-    return currentId;
-  }
+function clearAllTimeout() {
+  window.__timeOuts.forEach(el => clearTimeout(el))
+}
+
+window.__timeOuts = [];
+const originalSetTimeout = window.setTimeout;
+
+window.setTimeout = (...args) => {
+
+  const currentId = originalSetTimeout(...args);
+  window.__timeOuts.push(currentId);
+
+  return currentId;
+}

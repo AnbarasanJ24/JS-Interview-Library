@@ -13,19 +13,28 @@
  */
 
 
-const compose1 = (...functions) => {
-    // Reversing to run from right to left
-    let reverseFn = functions.reverse();
-    return (args) => {
-        return reverseFn.reduce((acc, fn) => {fn.call(this, acc)}, args);
-    }
-}
 
 const pipe = (...functions)=>{
+    console.log(functions)
     return (args)=>{
         return functions.reduce((acc, fn)=> fn.call(this, acc), args);
     }
 }
+const add5 = num => num + 5;
+const multiplyBy5 = num => num * 5;
+const multiplyAndAdd = pipe(add5, multiplyBy5);
+console.log(multiplyAndAdd(5));
+
+const compose1 = (...functions) => {
+    // Reversing to run from right to left
+    functions.reverse();
+    return (args) => {
+        return functions.reduce((acc, fn) => {fn.call(this, acc)}, args);
+    }
+}
+
+// const multiplyAndAdd = compose1(add5, multiplyBy5);
+
 
 // Another Variation
 const compose = (...functions) => {
@@ -40,8 +49,3 @@ const compose = (...functions) => {
     }
 }
 
-const add5 = num => num + 5;
-const multiplyBy5 = num => num * 5;
-// const multiplyAndAdd = compose1(add5, multiplyBy5);
-const multiplyAndAdd = pipe(add5, multiplyBy5);
-console.log(multiplyAndAdd(5));

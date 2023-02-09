@@ -8,6 +8,10 @@
 
 // func.length give the given function arguments length 
 
+// Check the arguments length is equal to or greater than given function argument length
+// If so call the give function 
+// If not, keep the arguments and return a curried function 
+
 const log = (date, time, message) => {
     return `${date}_${time}_${message}`
 }

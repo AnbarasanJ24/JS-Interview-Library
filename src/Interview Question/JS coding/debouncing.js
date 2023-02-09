@@ -1,6 +1,10 @@
-// Debouncing - Debounce function will delay the invoke 
-// Collect all value for certain amount of time and return the latest value
-// Usually when we have serach functionality, for each keyword will call the API
+// Debouncing - It will delay the function invoke 
+
+// Lets assume, Once a input change event occured, we have to call a function after 2 sec
+// After 1 sec is over, if there is a another same event occur, we need to cancel the previous function call and 
+// Start the timer again for 2sec
+
+// Usually when we have search functionality, for each keyword will call the API
 // Instead of calling API for each word, we can hold for few ms and collect the user input then make a API call
 
 // Create debounce function which takes two parameters i.e a function which fetch data and delay and finnaly it will return a new function
@@ -10,7 +14,7 @@
 
 
 let counter = 0;
-// FUnction called when the user type something
+// Function called when the user type something
 const getData = (term) => {
     console.log("Data", ++counter, term)
 }
@@ -22,7 +26,7 @@ const debounce = function(func, wait) {
     return (...args)=>{
       clearTimeout(timer);
       timer = setTimeout(()=>{
-        func.call(this, args)
+        func.apply(this, args)
       }, wait)
     }
 }

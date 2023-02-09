@@ -9,7 +9,6 @@
 // Using set timeout will delay the time and once it expries will make the boolean true 
 // since it is true, the function will be called again 
 
-
 // https://bigfrontend.dev/problem/implement-basic-throttle
 
 // Function used to Mimic like API Call
