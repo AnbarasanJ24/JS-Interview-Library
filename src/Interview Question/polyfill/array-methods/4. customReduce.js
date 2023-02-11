@@ -13,26 +13,28 @@
 // Check empty array and initial value is not passed, then throw a error 
 // check array as one element if not take it from initial value 
 // loop through the other value and store the result in accumulator
-Array.prototype.myReduce = function(...args) {
-    let arr = this; 
-    let argumentsLen = arguments.length 
-    if(arr.length === 0 && argumentsLen === 1){
-        throw new TypeError('Reduce of empty array with no initial value')
+Array.prototype.customReduce = function (...args) {
+    let callBack = args[0];
+    if (typeof callBack !== 'function') {
+        throw new Error('Invalid Function')
     }
-  
-    let accumulator = argumentsLen === 1 ? arr[0] : initailValue;
-    let index = argumentsLen === 1 ? 1 : 0;
-  
-    for(let i = index; i < arr.length; i++){
-        accumulator = callback(accumulator, arr[i], i, arr)
+
+    let source = this;
+    if (source.length === 0 && args.length === 1) {
+        throw new Error('No Initial Value and Array is empty')
     }
-    return accumulator;
+
+    let accmulator = args.length === 1 ? source[0] : args[1];
+    let startIndex = args.length === 1 ? 1 : 0;
+    
+    for (let index = startIndex; index < source.length; index++) {
+        let currentValue = source[index];
+        accmulator = callBack(accmulator, currentValue, index, source);
+    }
+
+    return accmulator;
+
 }
-
-let arr = [1, 2, 3];
-
-const sum = (accumulator, current, index, arr) => {
-    return accumulator + current;
-}
-
-console.log(arr.customReduce(sum, 1));
+const numbers = [1,2,3,4];
+const sum = (acc, num) => num + acc;
+console.log(numbers.customReduce(sum, 0))

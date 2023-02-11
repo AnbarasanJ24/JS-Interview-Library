@@ -12,22 +12,23 @@
 // function is called with num, index, numbers 
 
 
-
 Array.prototype.customFilter = function (callback) {
     if (typeof callback !== 'function') {
-        throw new Error('Invalid argument');
+        throw new Error('Invalid Function')
     }
+    let sourceArr = this;
+    let result = [];
 
-    const sourceArray = this;
-    const result = [];
-
-    for (let index = 0; index < sourceArray.length; index++) {
-        if (callback(sourceArray[index], index, sourceArray)) {
-            result[index] = sourceArray[index];
+    for (let index = 0; index < sourceArr.length; index++) {
+        let currentValue = sourceArr[index];
+        if (callback(currentValue, index, sourceArr)) {
+            result.push(currentValue)
         }
     }
+
     return result;
 }
+
 
 
 

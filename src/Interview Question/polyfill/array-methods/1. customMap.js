@@ -10,7 +10,7 @@
 // Notes
 // It will return an array
 // It will call a function on every value in the array 
-// Before call the function check  element exits in array 
+// Before call the function check element exits in array 
 // Each function will take three parameters, num, index, numbers
 
 // By default Map callback function gets its callback value and thisArgs (context)
