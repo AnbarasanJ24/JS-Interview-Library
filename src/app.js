@@ -12,3 +12,24 @@
 // const buffer = Buffer.from(data).toString('hex');
 // console.log("Buffer", `0x${buffer.toUpperCase()}`);
 
+// Call,Apply, Bind
+// This function will call the given function with given this keyword and provided args 
+// Inside call, this => given function, thisArgs - corner case 
+// Create a symbol to make a unique identfier 
+// Attach the function to context and call it. Return response for call, apply and return function for bind
+
+
+Function.prototype.customCall = function (thisArgs, args) {
+    const func = this;
+    const context = thisArgs ?? window;
+    context = Object(context);
+
+    const identifier = Symbol('identifier');
+    context[identifier] = func;
+
+    return function (...args2) {
+        const response = context[identifier](...args, ...args2);
+        delete context[identifier];
+        return response;
+    }
+}
