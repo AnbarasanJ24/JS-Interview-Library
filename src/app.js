@@ -11,3 +11,41 @@
 // ]
 // const buffer = Buffer.from(data).toString('hex');
 // console.log("Buffer", `0x${buffer.toUpperCase()}`);
+
+const successTask = time => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(time)
+        }, time)
+    })
+}
+
+
+const errorTask = time => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            reject(time)
+        }, time)
+    })
+}
+
+const promises = [successTask(300), successTask(200), errorTask(100)];
+
+
+function promiseRace(promises) {
+
+    return new Promise((resolve, reject) => {
+
+        if (!promises.length) resolve(promises);
+
+        promises.forEach(promise => {
+            Promise.resolve(promise)
+                .then(value => resolve(value))
+                .catch(err => reject(err))
+        });
+    })
+}
+
+promiseRace(promises)
+    .then(value => console.log(value))
+    .catch(err => console.log("Error",err))

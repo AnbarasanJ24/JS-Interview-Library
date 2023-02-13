@@ -9,7 +9,7 @@
 /**
  * Other Notes - JSON is purely a string, contains only properties not methods
  * Only double quote is valid, it will not accept sigle quote. It will not accept . , also 
- * We can include array, object , number, string, boolean in JSON, everything is valid 
+ * We can include number, string, boolean, array, object in JSON, everything is valid 
  * property should be double quoted 
  */
 
@@ -26,6 +26,7 @@ const stringify = (obj)=>{
     if(typeof obj === 'string') return `"${obj}"`;
     if(typeof obj === 'number' || typeof obj === 'boolean') return `${obj}`;
     
+    // ["1", "a", "true"]
     if(Array.isArray(obj)){
         let res = `[`;
         for (let val of obj){

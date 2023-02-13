@@ -3,7 +3,6 @@
     * Create a custom Promise step by step, first will create a method that return our custom promise
     * Promise class will be created with callback function
 */
-
 const myFetch = () => {
     return new MyPromise((resolve, reject) => {
         setTimeout(() => {
@@ -12,12 +11,11 @@ const myFetch = () => {
     })
 }
 
-
-    /*
-        * Promise will take a callback function i.e executor function and it should have access to resolve and reject method
-        * On calling the callback, the user get access to resolve and reject methods
-        * we dont know in which context user call the promise, so we can bind resolve, reject to current context using bind
-    */
+/*
+    * Promise will take a callback function i.e executor function and it should have access to resolve and reject method
+    * On calling the callback, the user get access to resolve and reject methods
+    * we dont know in which context user call the promise, so we can bind resolve, reject to current context using bind
+*/
 class MyPromise {
     constructor(executorFunction) {
         this.promiseChain = [];
@@ -63,7 +61,7 @@ class MyPromise {
     }
 
     onReject(error) {
-                                                                                            
+        this.handleError(error)
     }
 
 

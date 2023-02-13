@@ -1,6 +1,6 @@
 /*
     Promise - Its a object which carries either a success or failure value of a asynchronous operation 
-    It can be pending (when created), fulfilled - operation completed successfully, rejected - operation failed
+    It can be pending (when created), fulfilled - operation completed successfully, rejected - operation failed and settled 
     By using then method and get the value then the promise will be settled
 */
 
@@ -30,6 +30,9 @@ add(5, 5)
     .catch(error => {
         console.log("Error occured");
         console.log(error);
+    })
+    .finally(()=>{
+        console.log("Finally")
     })
 
 

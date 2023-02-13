@@ -23,7 +23,7 @@ function asynParallel(taskList, resultsCallBack) {
             result.push(value);
             taskCompleted++;
 
-            if (taskCompleted >= taskList.length) {
+            if (taskCompleted === taskList.length) {
                 resultsCallBack.call({}, err, result);
             }
         })

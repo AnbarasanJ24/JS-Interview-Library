@@ -7,15 +7,40 @@
 // Whichever is resolved or reject first will be returned
 
 
-function race(promises) {
-
-  if (!promises.length) resolve(promises);
-  
+const successTask = time => {
   return new Promise((resolve, reject) => {
-    promises.forEach(promise => {
-      Promise.resolve(promise)
-        .then(res => resolve(res))
-        .catch(err => reject(err));
-    })
+      setTimeout(() => {
+          resolve(time)
+      }, time)
   })
 }
+
+
+const errorTask = time => {
+  return new Promise((resolve, reject) => {
+      setTimeout(() => {
+          reject(time)
+      }, time)
+  })
+}
+
+const promises = [successTask(300), successTask(200), errorTask(100)];
+
+
+function promiseRace(promises) {
+
+  return new Promise((resolve, reject) => {
+
+      if (!promises.length) resolve(promises);
+
+      promises.forEach(promise => {
+          Promise.resolve(promise)
+              .then(value => resolve(value))
+              .catch(err => reject(err))
+      });
+  })
+}
+
+promiseRace(promises)
+  .then(value => console.log(value))
+  .catch(err => console.log("Error",err))
